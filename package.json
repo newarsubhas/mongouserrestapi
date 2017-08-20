@@ -2,10 +2,27 @@
   "name": "mongouserrestapi",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prabhatpankaj/mongouserrestapi.git"
+  },
+  "author": "prabhatiitbhu@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prabhatpankaj/mongouserrestapi/issues"
+  },
+  "homepage": "https://github.com/prabhatpankaj/mongouserrestapi#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
 }
