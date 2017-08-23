@@ -1,18 +1,18 @@
 
 # In a new directory, run npm init, and follow along with the prompts, giving your app the name of ‘mongouserrestapi’ 
-
+```
 npm init
-
+```
 # You’re going to use Express as your framework, MongoDB as the database, and a package called body-parser to help deal with JSON requests.
-
+```
 npm install --save express mongodb body-parser mongoose
-
+```
 # I also highly recommend installing Nodemon as a dev dependency. It’s a simple little package that automatically restarts your server when files change.
-
+```
 npm install --save-dev nodemon
-
+```
 # Your complete package.json should look like this:
-
+```
 // package.json
 
 {
@@ -35,26 +35,27 @@ npm install --save-dev nodemon
     "nodemon": "^1.11.0"
   }
 }
+```
 
 # Create a file called server.js - touch server.js.
 # In this server, we will writing the protocols to create our server.
-
+```
 touch server.js
-
+```
 # Create a folder called api 
 # Inside this folder called api, create three separate folders called models, routes, and controllers by running 
-
+```
 mkdir api
 mkdir api/controllers 
 mkdir api/models 
 mkdir api/routes
-
+```
 # Create UserController.js in the api/controller folder, UserRoutes.js in the routes folder, and UserModel.js in the model folder - 
-
+```
 touch api/controllers/UserController.js api/models/UserModel.js api/routes/UserRoutes.js
-
+```
 # open the UserModel.js file in your api/models folder and type the following code into the file and save.
-
+```
 // UserModel.js
 
 'use strict';
@@ -89,9 +90,9 @@ var UserSchema = new Schema({
 });
 
 module.exports = mongoose.model('Users', UserSchema);
-
+```
 # To do this, open the UserRoutes.js file in the route folder and paste the code snippet below into
-
+```
 //UserRoutes.js
 
 'use strict';
@@ -109,12 +110,12 @@ module.exports = function(app) {
     .put(user.update_a_user)
     .delete(user.delete_a_user);
 };
-
+```
 # Open UserController.js file with your text editor( Sublime, Atom e.t.c) and let’s deep dive into coding.
 
 # In this controller, we would be writing five(5) different functions namely: list_all_users, create_a_user, read_a_user, update_a_user, delete_a_user. We will exported each of the functions for us to use in our routes.
 # Each of these functions uses different mongoose methods such as find, findById, findOneAndUpdate, save and remove.
-
+```
 // UserController.js
 
 'use strict';
@@ -165,7 +166,7 @@ exports.delete_a_user = function(req, res) {
   });
 };
 
-
+```
 
 # Open the server.js file created awhile ago and follow the following steps to put everything together.
 # Essentially, you will be replacing the code in your server.js with the code snippet from this section
@@ -179,7 +180,7 @@ exports.delete_a_user = function(req, res) {
 
 # The easiest way to set up a Mongo database is through mLab: it’s free for the smallest size, and quite fast to setup.
 # Once you create an account and a MongoDB deployment, add a user to the database with a username and password , And in a directory config in the root of your project, create a db.js file.
-
+```
 mkdir config 
 cd config
 touch db.js
@@ -188,10 +189,10 @@ touch db.js
 module.exports = {
   url : 'mongodb://<dbuser>:<dbpassword>@ds151433.mlab.com:51433/userrestapi'
 };
-
+```
 # change your dbuser , dbpassword and database url in db.js 
 
-
+```
 // server.js
 
 var express = require('express'),
@@ -221,9 +222,9 @@ console.log('User RESTful API server started on: ' + port);
 app.use(function(req, res) {
   res.status(404).send({url: req.originalUrl + ' not found'})
 });
-
+```
 # completed code 
-
+```
 git clone https://github.com/prabhatpankaj/mongouserrestapi.git
 
-
+```
